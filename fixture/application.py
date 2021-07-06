@@ -7,7 +7,7 @@ class Application:
     def __init__(self, target):
         self.application = WinApplication(backend="win32").start(target)
         self.main_window = self.application.window(title="Free Address Book")
-        self.main_window.wait("visible", timeout=10)
+        self.main_window.wait("visible", timeout=20)
         self.groups = GroupHelper(self)
 
     def destroy(self):
