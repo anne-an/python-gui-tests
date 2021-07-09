@@ -13,7 +13,6 @@ def app(request):
 def pytest_generate_tests(metafunc):
     for fixture in metafunc.fixturenames:
         if fixture.startswith("xl_"):
-            print("FFF " + fixture)
             testdata = load_from_excel(fixture[3:])
             metafunc.parametrize(fixture, testdata, ids=[str(x) for x in testdata])
 
