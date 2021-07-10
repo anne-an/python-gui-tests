@@ -6,7 +6,7 @@ from fixture.application import Application
 
 @pytest.fixture(scope="session")
 def app(request):
-    fixture = Application("C:\\Users\\anne_\\Documents\\AddressBook\\AddressBook.exe")
+    fixture = Application("C:\\Users\\annem\\Documents\\AddressBook\\AddressBook.exe")
     request.addfinalizer(fixture.destroy)
     return fixture
 
@@ -22,5 +22,5 @@ def load_from_excel(file):
     ws = wb.active
     for row in range(1, ws.max_row + 1):
         for cell in range(1, ws.max_column + 1):
-            list.append(ws.cell(row, cell))
+            list.append(ws.cell(row, cell).value)
     return list
